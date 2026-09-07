@@ -1,231 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Точная верстка (80% + 3px)</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3D Artist Portfolio — Mobile Layout</title>
+<style>
+  :root{
+    --design-w: 375;
+    --blue: rgb(0,57,255);
+    --green: rgb(0,255,18);
+    --orange: rgb(255,126,0);
+    --light-blue: rgb(0,120,255);
+    --red: rgb(161,42,42);
+    --white: rgb(255,255,255);
+  }
 
-        body {
-            display: flex;
-            justify-content: center;
-            background-color: #f0f0f0; 
-            height: 100vh;
-            overflow: hidden; 
-            font-family: sans-serif;
-        }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--blue)}
+  body{
+    min-width:320px;
+    font-family:Arial,Helvetica,sans-serif;
+  }
 
-        .container {
-            width: 100%; 
-            max-width: 400px; 
-            height: 100%; 
-            background-color: #ffffff;
-            display: flex;
-            flex-direction: column;
-        }
+  /*
+    All geometry is based on the supplied 375x812 reference.
+    1 design pixel = 100vw / 375.
+    Therefore a 390px phone automatically scales every coordinate
+    by 390/375 without changing proportions.
+  */
+  .page{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    background:var(--blue);
+  }
 
-        /* Базовый стиль для всех синих блоков */
-        .blue-image {
-            width: 100%;
-            background-color: #0022ff; 
-            position: relative; /* ВАЖНО: чтобы вложенные элементы считались от краев этого блока */
-        }
+  .section{
+    position:relative;
+    width:100%;
+  }
 
-        /* ПЕРВЫЙ БЛОК: Высота ровно 80% от ширины */
-        .blue-1 {
-            aspect-ratio: 1 / 0.8; 
-            flex-shrink: 0;        
-        }
+  .s1{height:91.733333vw} /* 344/375 */
+  .s2{height:24.266667vw} /* 91/375 */
+  .s3{height:38.666667vw} /* 145/375 */
+  .s4{height:33.333333vw} /* 125/375 */
+  .s5{height:25.333333vw} /* 95/375 */
 
-        /* Остальные синие блоки: делят оставшееся пространство */
-        .blue-2 { flex-grow: 1; }
-        
-        /* Блок 3 и 4: Теперь равные */
-        .blue-3 { flex-grow: 1.5; }
-        .blue-4 { flex-grow: 1.5; }
-        
-        /* Блок 5: на 15% меньше своего прежнего значения (было 1, стало 0.85) */
-        .blue-5 { flex-grow: 0.85; }
+  .divider{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:.8vw; /* 3px / 375 */
+    background:var(--white);
+  }
 
-        /* БЕЛЫЕ РАЗДЕЛИТЕЛИ: строго 3 пикселя */
-        .divider {
-            width: 100%;
-            height: 3px; 
-            background-color: #ffffff;
-            flex-shrink: 0; 
-        }
+  /* Generic exact-position block */
+  .block{
+    position:absolute;
+    margin:0;
+    padding:0;
+  }
 
-        /* ===== ТИПЫ ЭЛЕМЕНТОВ ДЛЯ ПЕРВОГО БЛОКА ===== */
-        .text-green {
-            position: absolute;
-            background-color: #00ff00;
-            color: #000;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  .green{background:var(--green)}
+  .orange{background:var(--orange)}
+  .lblue{background:var(--light-blue)}
+  .red{background:var(--red)}
+  .white{background:var(--white)}
 
-        .link-red {
-            position: absolute;
-            background-color: #a52a2a;
-            color: #fff;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
+  /* ---------- SECTION 1: 0..344 ---------- */
+  .s1 .logo{
+    left:5.066667vw; top:2.933333vw;
+    width:16vw; height:4.533333vw;
+  }
+  .s1 .nav1{
+    left:68.533333vw; top:3.466667vw;
+    width:8.533333vw; height:2.933333vw;
+  }
+  .s1 .nav2{
+    left:79.466667vw; top:3.466667vw;
+    width:6.666667vw; height:2.933333vw;
+  }
+  .s1 .nav3{
+    left:88.533333vw; top:3.466667vw;
+    width:7.2vw; height:2.933333vw;
+  }
+  .s1 .hero-title{
+    left:5.066667vw; top:42.133333vw;
+    width:29.333333vw; height:16.533333vw;
+  }
+  .s1 .hero-sub{
+    left:5.066667vw; top:61.333333vw;
+    width:33.6vw; height:7.466667vw;
+  }
+  .s1 .cta{
+    left:5.6vw; top:72vw;
+    width:20.533333vw; height:5.333333vw;
+  }
 
-        /* ===== ТИПЫ ЭЛЕМЕНТОВ ДЛЯ ВТОРОГО БЛОКА ===== */
-        .img-link-orange {
-            background-color: #ff6600;
-            cursor: pointer;
-            width: 63px;
-            height: 63px;
-            position: relative;
-        }
+  .s1 .divider{top:91.733333vw}
 
-        .text-green-inside-orange {
-            position: absolute;
-            background-color: #00ff00;
-            color: #000;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-        }
+  /* ---------- SECTION 2: 347..438 ---------- */
+  .s2 .card1{left:4.8vw; top:1.333333vw; width:21.333333vw; height:21.066667vw}
+  .s2 .card2{left:27.733333vw; top:1.333333vw; width:21.333333vw; height:21.066667vw}
+  .s2 .card3{left:50.666667vw; top:1.333333vw; width:21.6vw; height:21.066667vw}
+  .s2 .card4{left:73.866667vw; top:1.333333vw; width:21.6vw; height:21.066667vw}
 
-        /* Flexbox контейнер для блока 2 */
-        .orange-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            gap: 12px;
-        }
+  .s2 .tag1{left:5.066667vw; top:17.866667vw; width:14.666667vw; height:4vw}
+  .s2 .tag2{left:28vw; top:17.866667vw; width:14.666667vw; height:4vw}
+  .s2 .tag3{left:50.933333vw; top:17.866667vw; width:14.666667vw; height:4vw}
+  .s2 .tag4{left:74.4vw; top:17.866667vw; width:14.666667vw; height:4vw}
 
-        /* ===== ТИПЫ ЭЛЕМЕНТОВ ДЛЯ ТРЕТЬЕГО БЛОКА ===== */
-        .img-blue {
-            position: absolute;
-            background-color: #4a90e2;
-        }
+  .s2 .divider{bottom:0}
 
-        /* ===== ТИПЫ ЭЛЕМЕНТОВ ДЛЯ ТРЕТЬЕГО БЛОКА (в процентах) ===== */
-        .text-green-3 {
-            position: absolute;
-            background-color: #00ff00;
-            color: #000;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  /* ---------- SECTION 3: 441..586 ---------- */
+  .s3 .title1{
+    left:33.333333vw; top:5.866667vw;
+    width:29.333333vw; height:5.333333vw;
+  }
+  .s3 .main{
+    left:33.333333vw; top:13.066667vw;
+    width:30.933333vw; height:15.2vw;
+  }
+  .s3 .redbox{
+    left:33.6vw; top:31.2vw;
+    width:14.666667vw; height:4.266667vw;
+  }
 
-        .link-red-3 {
-            position: absolute;
-            background-color: #a52a2a;
-            color: #fff;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
+  .s3 .side-head{
+    left:77.333333vw; top:7.466667vw;
+    width:18.133333vw; height:5.6vw;
+  }
+  .s3 .side1{left:77.333333vw; top:15.466667vw; width:4.8vw; height:4.8vw}
+  .s3 .side2{left:77.333333vw; top:22.933333vw; width:4.8vw; height:4.8vw}
+  .s3 .side3{left:77.333333vw; top:30.4vw; width:4.8vw; height:4.8vw}
+  .s3 .side4{left:77.333333vw; top:37.866667vw; width:4.8vw; height:4.8vw}
 
-        .img-blue-3 {
-            position: absolute;
-            background-color: #4a90e2;
-        }
-    </style>
+  .s3 .sidebar1{left:85.066667vw; top:15.466667vw; width:18.133333vw; height:5.6vw}
+  .s3 .sidebar2{left:85.066667vw; top:22.933333vw; width:18.133333vw; height:5.6vw}
+  .s3 .sidebar3{left:85.066667vw; top:30.4vw; width:18.133333vw; height:5.6vw}
+  .s3 .sidebar4{left:85.066667vw; top:37.866667vw; width:18.133333vw; height:5.6vw}
+
+  .s3 .divider{bottom:0}
+
+  /* ---------- SECTION 4: 589..714 ---------- */
+  .s4 .title{
+    left:33.6vw; top:4.266667vw;
+    width:27.2vw; height:2.4vw;
+  }
+
+  .s4 .tile1{left:33.6vw; top:8.266667vw; width:9.6vw; height:9.066667vw}
+  .s4 .tile2{left:44.533333vw; top:8.266667vw; width:9.6vw; height:9.066667vw}
+  .s4 .tile3{left:55.466667vw; top:8.266667vw; width:9.6vw; height:9.066667vw}
+  .s4 .tile4{left:66.4vw; top:8.266667vw; width:9.6vw; height:9.066667vw}
+
+  .s4 .wide{
+    left:33.6vw; top:20.533333vw;
+    width:40vw; height:8.533333vw;
+  }
+
+  .s4 .tile5{left:33.6vw; top:20.533333vw; width:9.6vw; height:8.533333vw}
+  .s4 .tile6{left:44.533333vw; top:20.533333vw; width:9.6vw; height:8.533333vw}
+  .s4 .tile7{left:55.466667vw; top:20.533333vw; width:14.933333vw; height:8.533333vw}
+
+  .s4 .hero{
+    left:79.466667vw; top:7.466667vw;
+    width:17.866667vw; height:15.466667vw;
+  }
+  .s4 .redbox{
+    left:79.466667vw; top:25.333333vw;
+    width:14.666667vw; height:4.266667vw;
+  }
+
+  .s4 .micro1{left:34.666667vw; top:17.333333vw; width:7.466667vw; height:1.6vw}
+  .s4 .micro2{left:45.6vw; top:17.333333vw; width:7.466667vw; height:1.6vw}
+  .s4 .micro3{left:56.533333vw; top:17.333333vw; width:7.466667vw; height:1.6vw}
+  .s4 .micro4{left:67.466667vw; top:17.333333vw; width:7.466667vw; height:1.6vw}
+
+  .s4 .divider{bottom:0}
+
+  /* ---------- SECTION 5: 717..812 ---------- */
+  .s5 .text1{
+    left:5.066667vw; top:1.866667vw;
+    width:30.933333vw; height:3.733333vw;
+  }
+  .s5 .text2{
+    left:5.066667vw; top:7.733333vw;
+    width:30.933333vw; height:2.933333vw;
+  }
+  .s5 .text3{
+    left:4vw; top:13.333333vw;
+    width:14.666667vw; height:4.266667vw;
+  }
+  .s5 .text4{
+    left:5.066667vw; top:21.333333vw;
+    width:11.733333vw; height:1.6vw;
+  }
+  .s5 .text5{
+    left:88.266667vw; top:21.333333vw;
+    width:6.4vw; height:1.866667vw;
+  }
+</style>
 </head>
 <body>
+<main class="page">
 
-    <div class="container">
-        
-        <!-- ===== БЛОК 1 ===== -->
-        <div class="blue-image blue-1">
-            <!-- 1. Верхний левый зеленый -->
-            <div class="text-green" style="top: 6%; left: 4.8%; width: 28%; height: 11.6%;">Hello-1</div>
-            
-            <!-- 2. Три зеленых справа вверху -->
-            <div class="text-green" style="top: 6%; right: 4%; width: 11.2%; height: 7.3%;">Hello-2</div>
-            <div class="text-green" style="top: 6%; right: 16%; width: 11.2%; height: 7.3%;">Hello-3</div>
-            <div class="text-green" style="top: 6%; right: 28%; width: 11.2%; height: 7.3%;">Hello-4</div>
-            
-            <!-- 3. Большой зеленый -->
-            <div class="text-green" style="top: 50%; left: 4.8%; width: 34.6%; height: 26.6%;">Hello-5</div>
-            
-            <!-- 4. Средний зеленый (под большим) -->
-            <div class="text-green" style="top: 79.3%; left: 4.8%; width: 34.6%; height: 10%;">Hello-6</div>
-            
-            <!-- 5. Красный (ссылка) -->
-            <a href="#" class="link-red" style="top: 91.6%; left: 4.8%; width: 26.6%; height: 8.3%;">Link-1</a>
-        </div>
-        <div class="divider"></div>
+  <section class="section s1">
+    <div class="block green logo"></div>
+    <div class="block green nav1"></div>
+    <div class="block green nav2"></div>
+    <div class="block green nav3"></div>
 
-        <!-- ===== БЛОК 2 ===== -->
-        <div class="blue-image blue-2">
-            <div class="orange-container" style="top: 10%; left: 50%; transform: translate(-50%, -50%); width: 16.8%; height: 63%; gap: 3.2%;">
-                <a href="#" class="img-link-orange" style="top: 0;">
-                    <div class="text-green-inside-orange" style="height: 15.8%;">Hello-7</div>
-                </a>
-                <a href="#" class="img-link-orange">
-                    <div class="text-green-inside-orange" style="height: 15.8%;">Hello-8</div>
-                </a>
-                <a href="#" class="img-link-orange">
-                    <div class="text-green-inside-orange" style="height: 15.8%;">Hello-9</div>
-                </a>
-                <a href="#" class="img-link-orange">
-                    <div class="text-green-inside-orange" style="height: 15.8%;">Hello-10</div>
-                </a>
-            </div>
-        </div>
-        <div class="divider"></div>
+    <div class="block green hero-title"></div>
+    <div class="block green hero-sub"></div>
+    <div class="block red cta"></div>
 
-        <!-- ===== БЛОК 3 ===== -->
-        <div class="blue-image blue-3">
-            <!-- 1. Верхний правый зеленый -->
-            <div class="text-green-3" style="top: 3%; right: 8%; width: 15%; height: 9%;">Hello-11</div>
-            
-            <!-- 2. Большой центральный зеленый -->
-            <div class="text-green-3" style="top: 19%; left: 23%; width: 39%; height: 37%;">Hello-12</div>
-            
-            <!-- 3. Красный (ссылка) -->
-            <a href="#" class="link-red-3" style="top: 66%; left: 23%; width: 23%; height: 13%;">Link-2</a>
-            
-            <!-- 4. Голубые (картинки) 4 шт -->
-            <div class="img-blue-3" style="top: 16%; right: 4%; width: 9%; height: 9%;"></div>
-            <div class="img-blue-3" style="top: 38%; right: 4%; width: 9%; height: 9%;"></div>
-            <div class="img-blue-3" style="top: 59%; right: 4%; width: 9%; height: 9%;"></div>
-            <div class="img-blue-3" style="top: 81%; right: 4%; width: 9%; height: 9%;"></div>
-            
-            <!-- 5. Зеленые тексты 4 шт -->
-            <div class="text-green-3" style="top: 16%; right: 15%; width: 20%; height: 9%;">Hello-13</div>
-            <div class="text-green-3" style="top: 38%; right: 15%; width: 20%; height: 9%;">Hello-14</div>
-            <div class="text-green-3" style="top: 59%; right: 15%; width: 20%; height: 9%;">Hello-15</div>
-            <div class="text-green-3" style="top: 81%; right: 15%; width: 20%; height: 9%;">Hello-16</div>
-        </div>
-        <div class="divider"></div>
+    <div class="divider"></div>
+  </section>
 
-        <!-- Блок 4 (пока пустой) -->
-        <div class="blue-image blue-4"></div>
-        <div class="divider"></div>
+  <section class="section s2">
+    <div class="block orange card1"></div>
+    <div class="block orange card2"></div>
+    <div class="block orange card3"></div>
+    <div class="block orange card4"></div>
 
-        <!-- Блок 5 (пока пустой) -->
-        <div class="blue-image blue-5"></div>
+    <div class="block green tag1"></div>
+    <div class="block green tag2"></div>
+    <div class="block green tag3"></div>
+    <div class="block green tag4"></div>
 
-    </div>
+    <div class="divider"></div>
+  </section>
 
+  <section class="section s3">
+    <div class="block green title1"></div>
+    <div class="block green main"></div>
+    <div class="block red redbox"></div>
+
+    <div class="block green side-head"></div>
+    <div class="block lblue side1"></div>
+    <div class="block lblue side2"></div>
+    <div class="block lblue side3"></div>
+    <div class="block lblue side4"></div>
+
+    <div class="block green sidebar1"></div>
+    <div class="block green sidebar2"></div>
+    <div class="block green sidebar3"></div>
+    <div class="block green sidebar4"></div>
+
+    <div class="divider"></div>
+  </section>
+
+  <section class="section s4">
+    <div class="block green title"></div>
+
+    <div class="block lblue tile1"></div>
+    <div class="block lblue tile2"></div>
+    <div class="block lblue tile3"></div>
+    <div class="block lblue tile4"></div>
+
+    <div class="block lblue tile5"></div>
+    <div class="block lblue tile6"></div>
+    <div class="block lblue tile7"></div>
+
+    <div class="block green hero"></div>
+    <div class="block red redbox"></div>
+
+    <div class="block green micro1"></div>
+    <div class="block green micro2"></div>
+    <div class="block green micro3"></div>
+    <div class="block green micro4"></div>
+
+    <div class="divider"></div>
+  </section>
+
+  <section class="section s5">
+    <div class="block green text1"></div>
+    <div class="block green text2"></div>
+    <div class="block red text3"></div>
+    <div class="block green text4"></div>
+    <div class="block green text5"></div>
+  </section>
+
+</main>
 </body>
 </html>
