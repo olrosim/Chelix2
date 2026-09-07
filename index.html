@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Точная верстка (80% + 3px + контент)</title>
+    <title>Точная верстка (80% + 3px + Точный контент)</title>
     <style>
         * {
             margin: 0;
@@ -29,27 +29,23 @@
             flex-direction: column;
         }
 
-        /* Базовый стиль для синих блоков (не ломаем!) */
+        /* Базовый стиль для всех синих блоков */
         .blue-image {
             width: 100%;
             background-color: #0022ff; 
-            position: relative; /* ВАЖНО: точка отсчета для внутренних элементов */
-            overflow: hidden;   /* Чтобы ничего не вылезало за блок */
+            position: relative; /* ВАЖНО для точного позиционирования */
         }
 
-        /* ПЕРВЫЙ БЛОК: Высота ровно 80% от ширины */
         .blue-1 {
             aspect-ratio: 1 / 0.8; 
             flex-shrink: 0;        
         }
 
-        /* Остальные синие блоки */
         .blue-2 { flex-grow: 1; }
         .blue-3 { flex-grow: 1.5; }
         .blue-4 { flex-grow: 1.5; }
         .blue-5 { flex-grow: 0.85; }
 
-        /* БЕЛЫЕ РАЗДЕЛИТЕЛИ */
         .divider {
             width: 100%;
             height: 3px; 
@@ -57,9 +53,7 @@
             flex-shrink: 0; 
         }
 
-        /* ===== НОВЫЕ ТИПЫ ЭЛЕМЕНТОВ ===== */
-
-        /* Простой текст (Зеленый) */
+        /* ===== ТИПЫ ЭЛЕМЕНТОВ ===== */
         .text-green {
             position: absolute;
             background-color: #00ff00;
@@ -70,7 +64,6 @@
             justify-content: center;
         }
 
-        /* Текст-ссылка (Красный) */
         .link-red {
             position: absolute;
             background-color: #a52a2a;
@@ -82,14 +75,12 @@
             text-decoration: none;
         }
 
-        /* Картинка-ссылка (Оранжевый) */
         .img-link-orange {
             position: absolute;
             background-color: #ff6600;
             cursor: pointer;
         }
 
-        /* Картинка (Голубой) */
         .img-blue {
             position: absolute;
             background-color: #4a90e2;
@@ -102,80 +93,81 @@
         
         <!-- ===== БЛОК 1 ===== -->
         <div class="blue-image blue-1">
-            <div class="text-green" style="top: 10px; left: 20px; width: 90px; height: 25px;">Hello</div>
-            <div class="text-green" style="top: 10px; right: 15px; width: 40px; height: 15px;">Hello</div>
-            <div class="text-green" style="top: 10px; right: 60px; width: 40px; height: 15px;">Hello</div>
-            <div class="text-green" style="top: 10px; right: 105px; width: 40px; height: 15px;">Hello</div>
+            <div class="text-green" style="top: 10px; left: 10px; width: 100px; height: 30px;">Hello</div>
             
-            <div class="text-green" style="top: 145px; left: 20px; width: 110px; height: 70px;">Hello World</div>
-            <div class="text-green" style="top: 225px; left: 20px; width: 110px; height: 25px;">Hello</div>
-            <a href="#" class="link-red" style="top: 262px; left: 20px; width: 90px; height: 20px;">Link</a>
+            <div class="text-green" style="top: 10px; right: 10px; width: 40px; height: 20px;">Hello</div>
+            <div class="text-green" style="top: 10px; right: 55px; width: 40px; height: 20px;">Hello</div>
+            <div class="text-green" style="top: 10px; right: 100px; width: 40px; height: 20px;">Hello</div>
+            
+            <div class="text-green" style="top: 145px; left: 10px; width: 120px; height: 70px;">Hello World</div>
+            <div class="text-green" style="top: 220px; left: 10px; width: 120px; height: 25px;">Hello</div>
+            <a href="#" class="link-red" style="top: 255px; left: 10px; width: 80px; height: 20px;">Link</a>
         </div>
         <div class="divider"></div>
 
         <!-- ===== БЛОК 2 ===== -->
         <div class="blue-image blue-2">
-            <a href="#" class="img-link-orange" style="top: 15px; left: 15px; width: 78px; height: 75px;">
-                <div class="text-green" style="top: 67px; left: 0; width: 100%; height: 8px;">Link</div>
+            <a href="#" class="img-link-orange" style="top: 14px; left: 6px; width: 82px; height: 75px;">
+                <div class="text-green" style="bottom: 0; left: 0; width: 100%; height: 8px;">Hello</div>
             </a>
-            <a href="#" class="img-link-orange" style="top: 15px; left: 99px; width: 78px; height: 75px;">
-                <div class="text-green" style="top: 67px; left: 0; width: 100%; height: 8px;">Link</div>
+            <a href="#" class="img-link-orange" style="top: 14px; left: 94px; width: 82px; height: 75px;">
+                <div class="text-green" style="bottom: 0; left: 0; width: 100%; height: 8px;">Hello</div>
             </a>
-            <a href="#" class="img-link-orange" style="top: 15px; left: 183px; width: 78px; height: 75px;">
-                <div class="text-green" style="top: 67px; left: 0; width: 100%; height: 8px;">Link</div>
+            <a href="#" class="img-link-orange" style="top: 14px; left: 182px; width: 82px; height: 75px;">
+                <div class="text-green" style="bottom: 0; left: 0; width: 100%; height: 8px;">Hello</div>
             </a>
-            <a href="#" class="img-link-orange" style="top: 15px; left: 267px; width: 78px; height: 75px;">
-                <div class="text-green" style="top: 67px; left: 0; width: 100%; height: 8px;">Link</div>
+            <a href="#" class="img-link-orange" style="top: 14px; left: 270px; width: 82px; height: 75px;">
+                <div class="text-green" style="bottom: 0; left: 0; width: 100%; height: 8px;">Hello</div>
             </a>
         </div>
         <div class="divider"></div>
 
         <!-- ===== БЛОК 3 ===== -->
         <div class="blue-image blue-3">
-            <div class="text-green" style="top: 20px; left: 90px; width: 160px; height: 40px;">Hello World</div>
-            <div class="text-green" style="top: 65px; left: 90px; width: 160px; height: 60px;">Hello World</div>
-            <a href="#" class="link-red" style="top: 130px; left: 90px; width: 90px; height: 20px;">Link</a>
+            <div class="text-green" style="top: 15px; left: 10px; width: 80px; height: 20px;">Hello</div>
             
-            <div class="img-blue" style="top: 20px; right: 15px; width: 35px; height: 25px;"></div>
-            <div class="img-blue" style="top: 53px; right: 15px; width: 35px; height: 25px;"></div>
-            <div class="img-blue" style="top: 86px; right: 15px; width: 35px; height: 25px;"></div>
-            <div class="img-blue" style="top: 119px; right: 15px; width: 35px; height: 25px;"></div>
+            <div class="text-green" style="top: 40px; left: 90px; width: 130px; height: 60px;">Hello World</div>
+            <div class="text-green" style="top: 105px; left: 90px; width: 130px; height: 25px;">Hello</div>
+            <a href="#" class="link-red" style="top: 135px; left: 90px; width: 70px; height: 15px;">Link</a>
             
-            <div class="text-green" style="top: 115px; right: 10px; width: 35px; height: 20px;">Hello</div>
+            <div class="img-blue" style="top: 15px; right: 15px; width: 40px; height: 25px;"></div>
+            <div class="img-blue" style="top: 50px; right: 15px; width: 40px; height: 25px;"></div>
+            <div class="img-blue" style="top: 85px; right: 15px; width: 40px; height: 25px;"></div>
+            <div class="img-blue" style="top: 120px; right: 15px; width: 40px; height: 25px;"></div>
+            
+            <div class="text-green" style="top: 120px; right: 5px; width: 25px; height: 15px;">Hello</div>
         </div>
         <div class="divider"></div>
 
         <!-- ===== БЛОК 4 ===== -->
         <div class="blue-image blue-4">
-            <!-- Центральные голубые (5 шт в ряд, потом 4) -->
-            <div class="img-blue" style="top: 20px; left: 90px; width: 38px; height: 28px;"></div>
-            <div class="img-blue" style="top: 20px; left: 133px; width: 38px; height: 28px;"></div>
-            <div class="img-blue" style="top: 20px; left: 176px; width: 38px; height: 28px;"></div>
-            <div class="img-blue" style="top: 20px; left: 219px; width: 38px; height: 28px;"></div>
-            <div class="img-blue" style="top: 20px; left: 262px; width: 38px; height: 28px;"></div>
+            <!-- Список слева -->
+            <div class="text-green" style="top: 10px; left: 15px; width: 60px; height: 15px;">Hello</div>
+            <div class="img-blue" style="top: 35px; left: 15px; width: 30px; height: 30px;"></div>
+            <div class="img-blue" style="top: 35px; left: 50px; width: 30px; height: 30px;"></div>
+            <div class="img-blue" style="top: 35px; left: 85px; width: 30px; height: 30px;"></div>
             
-            <div class="img-blue" style="top: 60px; left: 133px; width: 38px; height: 28px;"></div>
-            <div class="img-blue" style="top: 60px; left: 176px; width: 38px; height: 28px;"></div>
-            <div class="img-blue" style="top: 60px; left: 219px; width: 38px; height: 28px;"></div>
-            <div class="img-blue" style="top: 60px; left: 262px; width: 38px; height: 28px;"></div>
-            
-            <!-- Зеленые тексты -->
-            <div class="text-green" style="top: 60px; left: 20px; width: 60px; height: 15px;">Hello</div>
-            <div class="text-green" style="top: 100px; left: 20px; width: 60px; height: 15px;">Hello</div>
+            <div class="text-green" style="top: 75px; left: 15px; width: 60px; height: 15px;">Hello</div>
+            <div class="img-blue" style="top: 100px; left: 15px; width: 30px; height: 30px;"></div>
+            <div class="img-blue" style="top: 100px; left: 50px; width: 30px; height: 30px;"></div>
+            <div class="img-blue" style="top: 100px; left: 85px; width: 30px; height: 30px;"></div>
             
             <!-- Правая часть -->
-            <div class="img-blue" style="top: 30px; right: 15px; width: 70px; height: 60px;"></div>
-            <a href="#" class="link-red" style="top: 95px; right: 15px; width: 70px; height: 20px;">Link</a>
+            <div class="text-green" style="top: 10px; right: 60px; width: 80px; height: 20px;">Hello</div>
+            <a href="#" class="link-red" style="top: 40px; right: 60px; width: 80px; height: 20px;">Link</a>
+            
+            <div class="img-blue" style="top: 75px; right: 15px; width: 55px; height: 45px;"></div>
+            <div class="img-blue" style="top: 125px; right: 15px; width: 25px; height: 10px;"></div>
         </div>
         <div class="divider"></div>
 
         <!-- ===== БЛОК 5 ===== -->
         <div class="blue-image blue-5">
-            <div class="text-green" style="top: 10px; left: 20px; width: 75px; height: 20px;">Hello</div>
-            <div class="text-green" style="top: 35px; left: 20px; width: 75px; height: 15px;">Hello</div>
-            <a href="#" class="link-red" style="top: 60px; left: 20px; width: 50px; height: 15px;">Link</a>
+            <div class="text-green" style="top: 5px; left: 15px; width: 70px; height: 20px;">Hello</div>
+            <div class="text-green" style="top: 30px; left: 15px; width: 70px; height: 15px;">Hello</div>
+            <a href="#" class="link-red" style="top: 55px; left: 15px; width: 50px; height: 15px;">Link</a>
             
-            <div class="img-blue" style="bottom: 10px; right: 30px; width: 25px; height: 10px;"></div>
+            <div class="img-blue" style="top: 55px; right: 20px; width: 35px; height: 20px;"></div>
         </div>
 
     </div>
