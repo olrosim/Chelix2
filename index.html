@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Точная верстка (80% + 3px)</title>
+    <title>Точная верстка (Пропорции 80% + 3px)</title>
     <style>
         * {
             margin: 0;
@@ -37,23 +37,21 @@
 
         /* ПЕРВЫЙ БЛОК: Высота ровно 80% от ширины */
         .blue-1 {
-            aspect-ratio: 1 / 0.8; /* Ширина / Высота = 1 / 0.8 */
-            flex-shrink: 0;        /* Запрещаем сжиматься */
+            aspect-ratio: 1 / 0.8; 
+            flex-shrink: 0;        
         }
 
         /* Остальные синие блоки: делят оставшееся пространство */
-        .blue-2 { flex-grow: 1; }
-        .blue-3 { flex-grow: 1.5; } /* Этот блок чуть больше по макету */
-        .blue-4 { flex-grow: 1.2; }
-        .blue-5 { flex-grow: 1; }
 
-        /* БЕЛЫЕ РАЗДЕЛИТЕЛИ: строго 3 пикселя */
-        .divider {
-            width: 100%;
-            height: 3px; 
-            background-color: #ffffff;
-            flex-shrink: 0; 
-        }
+        /* Блок 2 */
+        .blue-2 { flex-grow: 1; }
+
+        /* Блоки 3 и 4: Равные по высоте */
+        .blue-3 { flex-grow: 1.5; }
+        .blue-4 { flex-grow: 1.5; }
+
+        /* Блок 5: На 15% меньше своего прежнего значения (было 1, стало 0.85) */
+        .blue-5 { flex-grow: 0.85; }
     </style>
 </head>
 <body>
