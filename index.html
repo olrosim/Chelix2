@@ -81,6 +81,27 @@
             justify-content: center;
             text-decoration: none;
         }
+
+        /* ===== ТИПЫ ЭЛЕМЕНТОВ ДЛЯ ВТОРОГО БЛОКА ===== */
+        .img-link-orange {
+            position: absolute;
+            background-color: #ff6600;
+            cursor: pointer;
+        }
+
+        .text-green-inside-orange {
+            position: absolute;
+            background-color: #00ff00;
+            color: #000;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+        }
     </style>
 </head>
 <body>
@@ -108,8 +129,22 @@
         </div>
         <div class="divider"></div>
 
-        <!-- Блок 2 (пока пустой) -->
-        <div class="blue-image blue-2"></div>
+        <!-- ===== БЛОК 2 ===== -->
+        <div class="blue-image blue-2">
+            <!-- Оранжевые блоки (4 шт) -->
+            <a href="#" class="img-link-orange" style="top: 10px; left: 10px; width: 84px; height: 75px;">
+                <div class="text-green-inside-orange">Hello</div>
+            </a>
+            <a href="#" class="img-link-orange" style="top: 10px; left: 104px; width: 84px; height: 75px;">
+                <div class="text-green-inside-orange">Hello</div>
+            </a>
+            <a href="#" class="img-link-orange" style="top: 10px; left: 198px; width: 84px; height: 75px;">
+                <div class="text-green-inside-orange">Hello</div>
+            </a>
+            <a href="#" class="img-link-orange" style="top: 10px; left: 292px; width: 84px; height: 75px;">
+                <div class="text-green-inside-orange">Hello</div>
+            </a>
+        </div>
         <div class="divider"></div>
 
         <!-- Блок 3 (пока пустой) -->
