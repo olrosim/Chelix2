@@ -3,64 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Точная верстка (адаптив)</title>
+    <title>Точная верстка (3px разделители)</title>
     <style>
-        /* Сброс отступов для точности */
+        /* Сброс отступов */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Тело на всю высоту экрана, без прокрутки */
+        /* Занимаем ровно высоту экрана, без прокрутки */
         body {
             display: flex;
             justify-content: center;
             background-color: #f0f0f0; 
-            height: 100vh; /* Важно! Занимает ровно высоту экрана */
-            overflow: hidden; /* Скрываем прокрутку, так как все влезает */
+            height: 100vh;
+            overflow: hidden; 
             font-family: sans-serif;
         }
 
         /* Основной контейнер */
         .container {
-            width: 100%; /* Занимает всю ширину экрана */
-            max-width: 400px; /* Максимальная ширина, если открыть на компе */
-            height: 100%; /* Растягивается на всю высоту */
-            background-color: #fff;
+            width: 100%; 
+            max-width: 400px; 
+            height: 100%; 
+            background-color: #ffffff;
             display: flex;
             flex-direction: column;
         }
 
-        /* СИНИЕ БЛОКИ */
+        /* СИНИЕ БЛОКИ (Заглушки под изображения) */
         .blue-image {
             width: 100%;
             background-color: #0022ff; 
+            flex-grow: 1; /* Главное изменение: блоки растягиваются, чтобы занять всё оставшееся место */
         }
 
-        /* Высоты в процентах, чтобы всё влезало на экран без скролла */
-        .blue-1 { height: 45%; }   /* Самый большой блок */
-        .blue-2 { height: 15%; }
-        .blue-3 { height: 18%; }
-        .blue-4 { height: 16%; }
-        .blue-5 { height: 10%; }
+        /* Примерные пропорции синих блоков относительно друг друга */
+        .blue-1 { flex-grow: 3; }  /* Самый большой */
+        .blue-2 { flex-grow: 1; }
+        .blue-3 { flex-grow: 1.5; }
+        .blue-4 { flex-grow: 1.2; }
+        .blue-5 { flex-grow: 1; }
 
-        /* БЕЛЫЕ РАЗДЕЛИТЕЛИ */
+        /* БЕЛЫЕ РАЗДЕЛИТЕЛИ - СТРОГО 3 ПИКСЕЛЯ */
         .divider {
             width: 100%;
-            height: 2%; /* Толщина тоже в процентах (или можно оставить 8px) */
+            height: 3px; /* Фиксированные 3 пикселя */
             background-color: #ffffff;
-        }
-
-        /* БЕЛЫЕ ПОЛОСКИ */
-        .white-strip {
-            width: 100%;
-            height: 5%; /* Высота декоративной полоски */
-            background-color: #ffffff;
-        }
-
-        .white-strip-1 {
-            border-bottom: 1px solid #e0e0e0;
+            flex-shrink: 0; /* Запрещаем сжиматься при нехватке места */
         }
     </style>
 </head>
@@ -70,26 +61,18 @@
         
         <!-- Блок 1 -->
         <div class="blue-image blue-1"></div>
-        
-        <!-- Разделитель -->
         <div class="divider"></div>
-
-        <!-- Белая полоска -->
-        <div class="white-strip white-strip-1"></div>
 
         <!-- Блок 2 -->
         <div class="blue-image blue-2"></div>
-        
         <div class="divider"></div>
 
         <!-- Блок 3 -->
         <div class="blue-image blue-3"></div>
-
         <div class="divider"></div>
 
         <!-- Блок 4 -->
         <div class="blue-image blue-4"></div>
-
         <div class="divider"></div>
 
         <!-- Блок 5 -->
