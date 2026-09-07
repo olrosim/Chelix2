@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Точная верстка (поэтапно)</title>
+    <title>Точная верстка (адаптив)</title>
     <style>
         /* Сброс отступов для точности */
         * {
@@ -12,57 +12,55 @@
             box-sizing: border-box;
         }
 
+        /* Тело на всю высоту экрана, без прокрутки */
         body {
             display: flex;
             justify-content: center;
-            background-color: #f0f0f0; /* Фон страницы, чтобы видеть границы */
+            background-color: #f0f0f0; 
+            height: 100vh; /* Важно! Занимает ровно высоту экрана */
+            overflow: hidden; /* Скрываем прокрутку, так как все влезает */
             font-family: sans-serif;
         }
 
         /* Основной контейнер */
         .container {
-            width: 400px; /* Ширина колонки. Можно изменить на нужную вам */
+            width: 100%; /* Занимает всю ширину экрана */
+            max-width: 400px; /* Максимальная ширина, если открыть на компе */
+            height: 100%; /* Растягивается на всю высоту */
             background-color: #fff;
             display: flex;
             flex-direction: column;
         }
 
-        /* СИНИЕ БЛОКИ (Заглушки под изображения) */
+        /* СИНИЕ БЛОКИ */
         .blue-image {
             width: 100%;
-            background-color: #0022ff; /* Тот самый синий цвет */
-            /* Пока ставим фиксированную высоту, как на вашем скриншоте */
-            /* Верхний блок самый большой */
+            background-color: #0022ff; 
         }
 
-        .blue-1 { height: 350px; }
-        .blue-2 { height: 120px; }
-        .blue-3 { height: 160px; }
-        .blue-4 { height: 140px; }
-        .blue-5 { height: 100px; }
+        /* Высоты в процентах, чтобы всё влезало на экран без скролла */
+        .blue-1 { height: 45%; }   /* Самый большой блок */
+        .blue-2 { height: 15%; }
+        .blue-3 { height: 18%; }
+        .blue-4 { height: 16%; }
+        .blue-5 { height: 10%; }
 
-        /* БЕЛЫЕ РАЗДЕЛИТЕЛИ (Тонкие линии) */
+        /* БЕЛЫЕ РАЗДЕЛИТЕЛИ */
         .divider {
             width: 100%;
-            height: 8px; /* Толщина разделителя в пикселях */
+            height: 2%; /* Толщина тоже в процентах (или можно оставить 8px) */
             background-color: #ffffff;
         }
 
-        /* БЕЛЫЕ ПОЛОСКИ-ИЗОБРАЖЕНИЯ (Декоративные вставки) */
-        /* Вы сказали, что белым тоже будут изображения в виде красивых полосок.
-           Пока это просто белые прямоугольники. */
+        /* БЕЛЫЕ ПОЛОСКИ */
         .white-strip {
             width: 100%;
-            height: 30px; /* Высота декоративной полоски */
+            height: 5%; /* Высота декоративной полоски */
             background-color: #ffffff;
-            /* Сюда потом можно добавить border, gradient или фон-картинку */
         }
 
-        /* Пример для первой "красивой" полоски под верхним синим блоком, 
-           если она нужна там, а не просто пустой зазор */
         .white-strip-1 {
-            height: 25px;
-            border-bottom: 1px solid #e0e0e0; /* Еле заметная тень для визуального разделения */
+            border-bottom: 1px solid #e0e0e0;
         }
     </style>
 </head>
@@ -70,17 +68,14 @@
 
     <div class="container">
         
-        <!-- Блок 1 (Самый большой синий) -->
+        <!-- Блок 1 -->
         <div class="blue-image blue-1"></div>
         
         <!-- Разделитель -->
         <div class="divider"></div>
 
-        <!-- Белая декоративная полоска (изображение) -->
+        <!-- Белая полоска -->
         <div class="white-strip white-strip-1"></div>
-
-        <!-- Разделитель (если нужен между полоской и следующим блоком) -->
-        <div class="divider"></div>
 
         <!-- Блок 2 -->
         <div class="blue-image blue-2"></div>
