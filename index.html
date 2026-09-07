@@ -120,6 +120,33 @@
             position: absolute;
             background-color: #4a90e2;
         }
+
+        /* ===== ТИПЫ ЭЛЕМЕНТОВ ДЛЯ ТРЕТЬЕГО БЛОКА (в процентах) ===== */
+        .text-green-3 {
+            position: absolute;
+            background-color: #00ff00;
+            color: #000;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link-red-3 {
+            position: absolute;
+            background-color: #a52a2a;
+            color: #fff;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .img-blue-3 {
+            position: absolute;
+            background-color: #4a90e2;
+        }
     </style>
 </head>
 <body>
@@ -168,29 +195,26 @@
 
         <!-- ===== БЛОК 3 ===== -->
         <div class="blue-image blue-3">
-            <!-- 1. Зеленый сверху слева -->
-            <div class="text-green" style="top: 15px; left: 10px; width: 80px; height: 20px;">Hello</div>
+            <!-- 1. Верхний правый зеленый -->
+            <div class="text-green-3" style="top: 3%; right: 8%; width: 15%; height: 9%;">Hello</div>
             
-            <!-- 2. Зеленый сверху справа -->
-            <div class="text-green" style="top: 15px; right: 40px; width: 45px; height: 20px;">Hello</div>
+            <!-- 2. Большой центральный зеленый -->
+            <div class="text-green-3" style="top: 19%; left: 23%; width: 39%; height: 37%;">Hello World</div>
             
-            <!-- 3. Большой зеленый -->
-            <div class="text-green" style="top: 40px; left: 90px; width: 130px; height: 60px;">Hello World</div>
+            <!-- 3. Красный (ссылка) -->
+            <a href="#" class="link-red-3" style="top: 66%; left: 23%; width: 23%; height: 13%;">Link</a>
             
-            <!-- 4. Зеленый под большим -->
-            <div class="text-green" style="top: 105px; left: 90px; width: 130px; height: 25px;">Hello</div>
+            <!-- 4. Голубые (картинки) 4 шт -->
+            <div class="img-blue-3" style="top: 16%; right: 4%; width: 9%; height: 9%;"></div>
+            <div class="img-blue-3" style="top: 38%; right: 4%; width: 9%; height: 9%;"></div>
+            <div class="img-blue-3" style="top: 59%; right: 4%; width: 9%; height: 9%;"></div>
+            <div class="img-blue-3" style="top: 81%; right: 4%; width: 9%; height: 9%;"></div>
             
-            <!-- 5. Красный (ссылка) -->
-            <a href="#" class="link-red" style="top: 135px; left: 90px; width: 70px; height: 15px;">Link</a>
-            
-            <!-- 6. Голубые (картинки) 4 шт -->
-            <div class="img-blue" style="top: 15px; right: 15px; width: 40px; height: 25px;"></div>
-            <div class="img-blue" style="top: 50px; right: 15px; width: 40px; height: 25px;"></div>
-            <div class="img-blue" style="top: 85px; right: 15px; width: 40px; height: 25px;"></div>
-            <div class="img-blue" style="top: 120px; right: 15px; width: 40px; height: 25px;"></div>
-            
-            <!-- 7. Зеленый под голубыми -->
-            <div class="text-green" style="top: 120px; right: 5px; width: 25px; height: 15px;">Hello</div>
+            <!-- 5. Зеленые тексты 4 шт -->
+            <div class="text-green-3" style="top: 16%; right: 15%; width: 20%; height: 9%;">Hello</div>
+            <div class="text-green-3" style="top: 38%; right: 15%; width: 20%; height: 9%;">Hello</div>
+            <div class="text-green-3" style="top: 59%; right: 15%; width: 20%; height: 9%;">Hello</div>
+            <div class="text-green-3" style="top: 81%; right: 15%; width: 20%; height: 9%;">Hello</div>
         </div>
         <div class="divider"></div>
 
