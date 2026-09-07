@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Точная верстка (Квадрат + 3px)</title>
+    <title>Точная верстка (80% + 3px)</title>
     <style>
         * {
             margin: 0;
@@ -35,10 +35,10 @@
             background-color: #0022ff; 
         }
 
-        /* САМЫЙ ВЕРХНИЙ БЛОК: Идеальный квадрат (высота = ширине) */
+        /* ПЕРВЫЙ БЛОК: Высота ровно 80% от ширины */
         .blue-1 {
-            aspect-ratio: 1 / 1; /* Это свойство делает блок квадратным */
-            flex-shrink: 0;      /* Запрещаем сжиматься, чтобы квадрат не ломался */
+            aspect-ratio: 1 / 0.8; /* Ширина / Высота = 1 / 0.8 */
+            flex-shrink: 0;        /* Запрещаем сжиматься */
         }
 
         /* Остальные синие блоки: делят оставшееся пространство */
@@ -59,7 +59,7 @@
 <body>
 
     <div class="container">
-        <!-- Блок 1: Идеальный квадрат -->
+        <!-- Блок 1 -->
         <div class="blue-image blue-1"></div>
         <div class="divider"></div>
 
