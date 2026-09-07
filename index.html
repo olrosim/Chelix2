@@ -114,6 +114,12 @@
             display: flex;
             gap: 12px;
         }
+
+        /* ===== ТИПЫ ЭЛЕМЕНТОВ ДЛЯ ТРЕТЬЕГО БЛОКА ===== */
+        .img-blue {
+            position: absolute;
+            background-color: #4a90e2;
+        }
     </style>
 </head>
 <body>
@@ -160,8 +166,32 @@
         </div>
         <div class="divider"></div>
 
-        <!-- Блок 3 (пока пустой) -->
-        <div class="blue-image blue-3"></div>
+        <!-- ===== БЛОК 3 ===== -->
+        <div class="blue-image blue-3">
+            <!-- 1. Зеленый сверху слева -->
+            <div class="text-green" style="top: 15px; left: 10px; width: 80px; height: 20px;">Hello</div>
+            
+            <!-- 2. Зеленый сверху справа -->
+            <div class="text-green" style="top: 15px; right: 40px; width: 45px; height: 20px;">Hello</div>
+            
+            <!-- 3. Большой зеленый -->
+            <div class="text-green" style="top: 40px; left: 90px; width: 130px; height: 60px;">Hello World</div>
+            
+            <!-- 4. Зеленый под большим -->
+            <div class="text-green" style="top: 105px; left: 90px; width: 130px; height: 25px;">Hello</div>
+            
+            <!-- 5. Красный (ссылка) -->
+            <a href="#" class="link-red" style="top: 135px; left: 90px; width: 70px; height: 15px;">Link</a>
+            
+            <!-- 6. Голубые (картинки) 4 шт -->
+            <div class="img-blue" style="top: 15px; right: 15px; width: 40px; height: 25px;"></div>
+            <div class="img-blue" style="top: 50px; right: 15px; width: 40px; height: 25px;"></div>
+            <div class="img-blue" style="top: 85px; right: 15px; width: 40px; height: 25px;"></div>
+            <div class="img-blue" style="top: 120px; right: 15px; width: 40px; height: 25px;"></div>
+            
+            <!-- 7. Зеленый под голубыми -->
+            <div class="text-green" style="top: 120px; right: 5px; width: 25px; height: 15px;">Hello</div>
+        </div>
         <div class="divider"></div>
 
         <!-- Блок 4 (пока пустой) -->
